@@ -11,7 +11,7 @@ app.use(bodyparser.urlencoded({
 
 var httpServer = http.createServer(app);
 
-httpServer.listen(8085);
+httpServer.listen(80);
 
 var movs = [];
 
@@ -19,6 +19,12 @@ var defplayers = 1;
 
 app.get('/number', function(req, res) {
     res.send('' + defplayers++);
+});
+
+app.get('/reset', function(req, res) {
+    movs = [];
+    defplayers = 1;
+    res.send('');
 });
 
 app.get('/getmov', function(req, res) {
